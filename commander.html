@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commande</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <form id="orderForm">
+            <h2>Contact</h2>
+            <input type="email" id="email" name="email" placeholder="Adresse e-mail" required>
+            <div>
+                <input type="checkbox" id="newsletterEmail" name="newsletterEmail">
+                <label for="newsletterEmail">Envoyez-moi les nouvelles et les offres par e-mail</label>
+            </div>
+            
+            <h2>Livraison</h2>
+            <select id="country" name="country" required>
+                <option value="Maroc">Maroc</option>
+                <!-- Add other countries if needed -->
+            </select>
+            <input type="text" id="firstName" name="firstName" placeholder="Prénom" required>
+            <input type="text" id="lastName" name="lastName" placeholder="Nom" required>
+            <input type="text" id="address" name="address" placeholder="Adresse" required>
+            <input type="text" id="postalCode" name="postalCode" placeholder="Code postal" required>
+            <input type="text" id="city" name="city" placeholder="Ville" required>
+            <input type="tel" id="phone" name="phone" placeholder="Téléphone" required>
+            
+            <div>
+                <input type="checkbox" id="saveInfo" name="saveInfo">
+                <label for="saveInfo">Sauvegarder mes coordonnées pour la prochaine fois</label>
+            </div>
+            <div>
+                <input type="checkbox" id="newsletterSMS" name="newsletterSMS">
+                <label for="newsletterSMS">Envoyez-moi les nouvelles et les offres par SMS</label>
+            </div>
+            
+            <h2>Mode d'expédition</h2>
+            <select id="shipping" name="shipping" required>
+                <option value="payant">Livraison payante - 35,00 MAD</option>
+                <!-- Add other shipping options if needed -->
+            </select>
+
+            <main>
+                <section class="cart">
+                    <h1>Votre Panier</h1>
+                    <div id="cart-items"></div>
+                    <div class="cart-summary">
+                        <p id="total-price">Total: 0 Dh</p>
+                    </div>
+                </section>
+            </main>
+
+            <button type="submit">Envoyer</button>
+        </form>
+    </div>
+    <script src="cart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
