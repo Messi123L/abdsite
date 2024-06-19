@@ -23,7 +23,7 @@ input[type="email"],
 input[type="text"],
 input[type="tel"],
 select {
-  width: calc(100% - 20px); /* Ajustement pour tenir compte des bordures */
+  width: calc(100% - 20px);
   padding: 10px;
   margin: 10px 0;
   border: 1px solid #ccc;
@@ -52,14 +52,14 @@ button:hover {
 .cart-item {
   display: flex;
   align-items: center;
-  margin-top: 20px; /* Ajustement pour séparer les éléments */
+  margin-top: 20px;
 }
 
 .cart-item img {
   width: 50px;
   height: 50px;
   margin-right: 10px;
-  border-radius: 5px; /* Ajout de coins arrondis */
+  border-radius: 5px;
 }
 
 .cart-item div {
@@ -67,20 +67,44 @@ button:hover {
   flex-direction: column;
 }
 
-.cart-item input[type="number"] {
-  width: 50px;
+.cart-item .quantity-control {
+  display: flex;
+  align-items: center;
   margin-top: 5px;
 }
 
+.cart-item .quantity-control button {
+  width: 30px;
+  height: 30px;
+  background-color:
+  #f9c72c;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.cart-item .quantity-control input {
+  width: 50px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 0 5px;
+}
+
 .cart-item button {
-  margin-top: 5px;
-  padding: 5px;
+  margin-top: 10px;
+  padding: 5px 10px;
   background-color: red;
   color: white;
   border: none;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 .cart-summary {
   margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
 }

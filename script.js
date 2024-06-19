@@ -3,8 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (form) {
       form.addEventListener('submit', function(event) {
           event.preventDefault();
-
-          // Collect and process form data for order submission
+          sendWhatsApp(event); // Call sendWhatsApp function on form submission
       });
   }
 
@@ -32,56 +31,67 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Function to send order details via WhatsApp
-  window.sendWhatsApp = function() {
+  window.sendWhatsApp = function(event) {
+      event.preventDefault(); // Prevent the form from submitting the default way
+      
       const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
       let cartDetails = '';
 
       cartItems.forEach(item => {
-          cartDetails += `\n- ${item.name} (${item.price})`;
+          cartDetails += `\n- ${item.name} (${item.price}) x ${item.quantity}`;
       });
 
+      const email = document.getElementById('email').value;
+      const firstName = document.getElementById('firstName').value;
+      const lastName = document.getElementById('lastName').value;
+      const address = document.getElementById('address').value;
+      const postalCode = document.getElementById('postalCode').value;
+      const city = document.getElementById('city').value;
+      const phone = document.getElementById('phone').value;
+      const shipping = document.getElementById('shipping').value;
+
       const message = `Nouvelle commande:
-Adresse e-mail: ${document.getElementById('email').value}
+Adresse e-mail: ${email}
+Prénom: ${firstName}
+Nom: ${lastName}
+Adresse: ${address}
+Code postal: ${postalCode}
+Ville: ${city}
+Téléphone: ${phone}
+Mode d'expédition: ${shipping}
 Articles dans le panier:${cartDetails}`;
 
       const whatsappURL = `https://wa.me/212642293138?text=${encodeURIComponent(message)}`;
       window.open(whatsappURL, '_blank');
   }
 });
-document.addEventListener('DOMContentLoaded', function () {
-  const form = document.getElementById('orderForm');
-  if (form) {
-      form.addEventListener('submit', function(event) {
-          event.preventDefault();
 
-          const email = document.getElementById('email').value;
-          const firstName = document.getElementById('firstName').value;
-          const lastName = document.getElementById('lastName').value;
-          const address = document.getElementById('address').value;
-          const postalCode = document.getElementById('postalCode').value;
-          const city = document.getElementById('city').value;
-          const phone = document.getElementById('phone').value;
-          const country = document.getElementById('country').value;
-          const shipping = document.getElementById('shipping').value;
-          
-          const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-          let cartDetails = '';
+// script.js
 
-          cartItems.forEach(item => {
-              cartDetails += `\n- ${item.name} (${item.price})`;
-          });
+document.addEventListener('DOMContentLoaded', () => {
+  const menuBtn = document.getElementById('menu-btn');
+  const dropdownMenu = document.getElementById('menu-dropdown');
 
-          const message = `Nouvelle commande de ${firstName} ${lastName}:
-Email: ${email}
-Téléphone: ${phone}
-Adresse: ${address}, ${postalCode}, ${city}, ${country}
-Mode d'expédition: ${shipping}
-Articles dans le panier:${cartDetails}`;
+  menuBtn.addEventListener('click', () => {
+    dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+  });
 
-          const whatsappURL = `https://wa.me/212642293138?text=${encodeURIComponent(message)}`;
-          window.open(whatsappURL, '_blank');
-      });
-  }
+  // Hide dropdown if clicked outside
+  document.addEventListener('click', (event) => {
+    if (!menuBtn.contains(event.target) && !dropdownMenu.contains(event.target)) {
+      dropdownMenu.style.display = 'none';
+    }
+  });
 
-  // Autres fonctions...
+  // Toggle submenus
+  document.querySelectorAll('.dropdown-menu > li > a').forEach(menuItem => {
+    menuItem.addEventListener('click', (event) => {
+      event.preventDefault();
+      const submenu = menuItem.nextElementSibling;
+      if (submenu && submenu.classList.contains('submenu')) {
+        submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+      }
+    });
+  });
 });
+
