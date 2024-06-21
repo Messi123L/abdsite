@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beez Uniforms</title>
+    <title>Moon elite</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -18,6 +19,7 @@
                             <li><a href="#">Pyjama de bloc</a></li>
                             <li><a href="#">Stretch - Col Mao</a></li>
                             <li><a href="#">Stretch - Col V</a></li>
+                            <li><a href="#">Stretch - Col Polo</a></li>
                             <li><a href="#">Collection hijab</a></li>
                             <li>
                                 <a href="#">Blouses anti-tâches</a>
@@ -36,6 +38,7 @@
                             <li><a href="#">Pyjama de bloc</a></li>
                             <li><a href="#">Stretch - Col Mao</a></li>
                             <li><a href="#">Stretch - Col V</a></li>
+                            <li><a href="#">Stretch - Col Polo</a></li>
                             <li>
                                 <a href="#">Blouses anti-tâches</a>
                                 <ul class="submenu">
@@ -53,42 +56,16 @@
                 </ul>
             </div>
             <div class="logo">
-                <img src="path_to_logo_image" alt="Beez Uniforms">
+                <img src="./logo.jpg" alt="Beez Uniforms">
             </div>
-            <h1>Qualité Haut Niveau</h1>
+            <h1 style="color: white;">Moon Elite
+</h1>
+            
             <div class="cart">
-                <a href="./commander.html"><img src="path_to_cart_icon" alt="Cart"></a>
+                <a href="./commander.html"><i style="font-size:24px" class="fa">&#xf07a;</i></a>
             </div>
         </header>
         <h1 style="text-align: center; margin-top: 10px;">Nos Produits</h1>
-        <main>
-            <section class="products-section">
-                <div class="products">
-                    <div class="product" id="product-1">
-                        <img id="product-1-image" src="./téléchargement.jpeg" alt="Product 1">
-                        <h2>Pyjama De Bloc - Max Stretch Femme</h2>
-                        <p>200.00 Dh <span class="discount">359 Dh</span></p>
-                        <div class="colors">
-                            <span class="color" data-image="path_to_product_image_1" style="background-color: #4b0082;"></span>
-                            <span class="color" data-image="./téléchargement.jpeg" style="background-color: #ff0000;"></span>
-                            <span class="color" data-image="./téléchargement.jpeg" style="background-color: #0000ff;"></span>
-                        </div>
-                        <button onclick="addToCart('Pyjama De Bloc - Max Stretch Femme', '200.00 Dh', './téléchargement.jpeg')">Ajouter au panier</button>
-                    </div>
-                    <div class="product" id="product-2">
-                        <img id="product-2-image" src="path_to_product_image_2" alt="Product 2">
-                        <h2>Pyjama De Bloc Stretch - Femme</h2>
-                        <p>340 Dh</p>
-                        <div class="colors">
-                            <span class="color" data-image="path_to_product_image_2" style="background-color: #4b0082;"></span>
-                            <span class="color" data-image="path_to_product_image_2_red" style="background-color: #ff0000;"></span>
-                            <span class="color" data-image="path_to_product_image_2_blue" style="background-color: #0000ff;"></span>
-                        </div>
-                        <button onclick="addToCart('Pyjama De Bloc Stretch - Femme', '340 Dh', 'path_to_product_image_2')">Ajouter au panier</button>
-                    </div>
-                </div>
-            </section>
-        </main>
         <main>
           <section class="products-section">
               <div class="products">
@@ -101,10 +78,17 @@
                           <span class="color" data-image="./téléchargement.jpeg" style="background-color: #ff0000;"></span>
                           <span class="color" data-image="./téléchargement.jpeg" style="background-color: #0000ff;"></span>
                       </div>
-                      <button onclick="addToCart('Pyjama De Bloc - Max Stretch Femme', '200.00 Dh', './téléchargement.jpeg')">Ajouter au panier</button>
+                      <div class="sizes">
+                          <span class="size" data-size="S">S</span>
+                          <span class="size" data-size="M">M</span>
+                          <span class="size" data-size="L">L</span>
+                          <span class="size" data-size="XL">XL</span>
+                          <span class="size" data-size="XXL">XXL</span>
+                      </div>
+                      <button id="btn" onclick="addToCart('Pyjama De Bloc - Max Stretch Femme', '200.00 Dh', './téléchargement.jpeg', 'product-1')">Ajouter au panier</button>
                   </div>
                   <div class="product" id="product-2">
-                      <img id="product-2-image" src="path_to_product_image_2" alt="Product 2">
+                      <img id="product-2-image" src="./téléchargement.jpeg" alt="Product 2">
                       <h2>Pyjama De Bloc Stretch - Femme</h2>
                       <p>340 Dh</p>
                       <div class="colors">
@@ -112,11 +96,19 @@
                           <span class="color" data-image="path_to_product_image_2_red" style="background-color: #ff0000;"></span>
                           <span class="color" data-image="path_to_product_image_2_blue" style="background-color: #0000ff;"></span>
                       </div>
-                      <button onclick="addToCart('Pyjama De Bloc Stretch - Femme', '340 Dh', 'path_to_product_image_2')">Ajouter au panier</button>
+                      <div class="sizes">
+                          <span class="size" data-size="S">S</span>
+                          <span class="size" data-size="M">M</span>
+                          <span class="size" data-size="L">L</span>
+                          <span class="size" data-size="XL">XL</span>
+                          <span class="size" data-size="XXL">XXL</span>
+                      </div>
+                      <button id="btn" onclick="addToCart('Pyjama De Bloc Stretch - Femme', '340 Dh', 'path_to_product_image_2', 'product-2')">Ajouter au panier</button>
                   </div>
               </div>
           </section>
       </main>
+      
       <main>
         <section class="products-section">
             <div class="products">
@@ -129,10 +121,17 @@
                         <span class="color" data-image="./téléchargement.jpeg" style="background-color: #ff0000;"></span>
                         <span class="color" data-image="./téléchargement.jpeg" style="background-color: #0000ff;"></span>
                     </div>
-                    <button onclick="addToCart('Pyjama De Bloc - Max Stretch Femme', '200.00 Dh', './téléchargement.jpeg')">Ajouter au panier</button>
+                    <div class="sizes">
+                        <span class="size" data-size="S">S</span>
+                        <span class="size" data-size="M">M</span>
+                        <span class="size" data-size="L">L</span>
+                        <span class="size" data-size="XL">XL</span>
+                        <span class="size" data-size="XXL">XXL</span>
+                    </div>
+                    <button id="btn" onclick="addToCart('Pyjama De Bloc - Max Stretch Femme', '200.00 Dh', './téléchargement.jpeg', 'product-1')">Ajouter au panier</button>
                 </div>
                 <div class="product" id="product-2">
-                    <img id="product-2-image" src="path_to_product_image_2" alt="Product 2">
+                    <img id="product-2-image" src="./téléchargement.jpeg" alt="Product 2">
                     <h2>Pyjama De Bloc Stretch - Femme</h2>
                     <p>340 Dh</p>
                     <div class="colors">
@@ -140,7 +139,14 @@
                         <span class="color" data-image="path_to_product_image_2_red" style="background-color: #ff0000;"></span>
                         <span class="color" data-image="path_to_product_image_2_blue" style="background-color: #0000ff;"></span>
                     </div>
-                    <button onclick="addToCart('Pyjama De Bloc Stretch - Femme', '340 Dh', 'path_to_product_image_2')">Ajouter au panier</button>
+                    <div class="sizes">
+                        <span class="size" data-size="S">S</span>
+                        <span class="size" data-size="M">M</span>
+                        <span class="size" data-size="L">L</span>
+                        <span class="size" data-size="XL">XL</span>
+                        <span class="size" data-size="XXL">XXL</span>
+                    </div>
+                    <button id="btn" onclick="addToCart('Pyjama De Bloc Stretch - Femme', '340 Dh', 'path_to_product_image_2', 'product-2')">Ajouter au panier</button>
                 </div>
             </div>
         </section>
@@ -157,10 +163,17 @@
                       <span class="color" data-image="./téléchargement.jpeg" style="background-color: #ff0000;"></span>
                       <span class="color" data-image="./téléchargement.jpeg" style="background-color: #0000ff;"></span>
                   </div>
-                  <button onclick="addToCart('Pyjama De Bloc - Max Stretch Femme', '200.00 Dh', './téléchargement.jpeg')">Ajouter au panier</button>
+                  <div class="sizes">
+                      <span class="size" data-size="S">S</span>
+                      <span class="size" data-size="M">M</span>
+                      <span class="size" data-size="L">L</span>
+                      <span class="size" data-size="XL">XL</span>
+                      <span class="size" data-size="XXL">XXL</span>
+                  </div>
+                  <button id="btn" onclick="addToCart('Pyjama De Bloc - Max Stretch Femme', '200.00 Dh', './téléchargement.jpeg', 'product-1')">Ajouter au panier</button>
               </div>
               <div class="product" id="product-2">
-                  <img id="product-2-image" src="path_to_product_image_2" alt="Product 2">
+                  <img id="product-2-image" src="./téléchargement.jpeg" alt="Product 2">
                   <h2>Pyjama De Bloc Stretch - Femme</h2>
                   <p>340 Dh</p>
                   <div class="colors">
@@ -168,7 +181,14 @@
                       <span class="color" data-image="path_to_product_image_2_red" style="background-color: #ff0000;"></span>
                       <span class="color" data-image="path_to_product_image_2_blue" style="background-color: #0000ff;"></span>
                   </div>
-                  <button onclick="addToCart('Pyjama De Bloc Stretch - Femme', '340 Dh', 'path_to_product_image_2')">Ajouter au panier</button>
+                  <div class="sizes">
+                      <span class="size" data-size="S">S</span>
+                      <span class="size" data-size="M">M</span>
+                      <span class="size" data-size="L">L</span>
+                      <span class="size" data-size="XL">XL</span>
+                      <span class="size" data-size="XXL">XXL</span>
+                  </div>
+                  <button id="btn" onclick="addToCart('Pyjama De Bloc Stretch - Femme', '340 Dh', 'path_to_product_image_2', 'product-2')">Ajouter au panier</button>
               </div>
           </div>
       </section>
@@ -185,10 +205,17 @@
                     <span class="color" data-image="./téléchargement.jpeg" style="background-color: #ff0000;"></span>
                     <span class="color" data-image="./téléchargement.jpeg" style="background-color: #0000ff;"></span>
                 </div>
-                <button onclick="addToCart('Pyjama De Bloc - Max Stretch Femme', '200.00 Dh', './téléchargement.jpeg')">Ajouter au panier</button>
+                <div class="sizes">
+                    <span class="size" data-size="S">S</span>
+                    <span class="size" data-size="M">M</span>
+                    <span class="size" data-size="L">L</span>
+                    <span class="size" data-size="XL">XL</span>
+                    <span class="size" data-size="XXL">XXL</span>
+                </div>
+                <button id="btn" onclick="addToCart('Pyjama De Bloc - Max Stretch Femme', '200.00 Dh', './téléchargement.jpeg', 'product-1')">Ajouter au panier</button>
             </div>
             <div class="product" id="product-2">
-                <img id="product-2-image" src="path_to_product_image_2" alt="Product 2">
+                <img id="product-2-image" src="./téléchargement.jpeg" alt="Product 2">
                 <h2>Pyjama De Bloc Stretch - Femme</h2>
                 <p>340 Dh</p>
                 <div class="colors">
@@ -196,31 +223,89 @@
                     <span class="color" data-image="path_to_product_image_2_red" style="background-color: #ff0000;"></span>
                     <span class="color" data-image="path_to_product_image_2_blue" style="background-color: #0000ff;"></span>
                 </div>
-                <button onclick="addToCart('Pyjama De Bloc Stretch - Femme', '340 Dh', 'path_to_product_image_2')">Ajouter au panier</button>
+                <div class="sizes">
+                    <span class="size" data-size="S">S</span>
+                    <span class="size" data-size="M">M</span>
+                    <span class="size" data-size="L">L</span>
+                    <span class="size" data-size="XL">XL</span>
+                    <span class="size" data-size="XXL">XXL</span>
+                </div>
+                <button id="btn" onclick="addToCart('Pyjama De Bloc Stretch - Femme', '340 Dh', 'path_to_product_image_2', 'product-2')">Ajouter au panier</button>
             </div>
         </div>
     </section>
 </main>
-        <footer>
-            <div class="footer-content">
-                <div class="contact">
-                    <h3>Contactez Nous</h3>
-                    <p>Adresse: Rue Goulmima Res Loubna</p>
-                    <p>Téléphone: +212 661 73 84 45</p>
-                    <p>Email: contact@beez.ma</p>
-                </div>
-                <div class="links">
-                    <h3>Liens utiles</h3>
-                    <ul>
-                        <li><a href="#">Centre d'aide</a></li>
-                        <li><a href="#">Politique de confidentialité</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>Copyright © 2024 All Rights Reserved.</p>
-            </div>
-        </footer>
+<main>
+  <section class="products-section">
+      <div class="products">
+          <div class="product" id="product-1">
+              <img id="product-1-image" src="./téléchargement.jpeg" alt="Product 1">
+              <h2>Pyjama De Bloc - Max Stretch Femme</h2>
+              <p>200.00 Dh <span class="discount">359 Dh</span></p>
+              <div class="colors">
+                  <span class="color" data-image="path_to_product_image_1" style="background-color: #4b0082;"></span>
+                  <span class="color" data-image="./téléchargement.jpeg" style="background-color: #ff0000;"></span>
+                  <span class="color" data-image="./téléchargement.jpeg" style="background-color: #0000ff;"></span>
+              </div>
+              <div class="sizes">
+                  <span class="size" data-size="S">S</span>
+                  <span class="size" data-size="M">M</span>
+                  <span class="size" data-size="L">L</span>
+                  <span class="size" data-size="XL">XL</span>
+                  <span class="size" data-size="XXL" style=" text-decoration: line-through;" >XXL</span>
+              </div>
+              <button id="btn" onclick="addToCart('Pyjama De Bloc - Max Stretch Femme', '200.00 Dh', './téléchargement.jpeg', 'product-1')">Ajouter au panier</button>
+          </div>
+          <div class="product" id="product-2">
+              <img id="product-2-image" src="./téléchargement.jpeg" alt="Product 2">
+              <h2>Pyjama De Bloc Stretch - Femme</h2>
+              <p>340 Dh</p>
+              <div class="colors">
+                  <span class="color" data-image="path_to_product_image_2" style="background-color: #4b0082;"></span>
+                  <span class="color" data-image="path_to_product_image_2_red" style="background-color: #ff0000;"></span>
+                  <span class="color" data-image="path_to_product_image_2_blue" style="background-color: #0000ff;"></span>
+              </div>
+              <div class="sizes">
+                  <span class="size" data-size="S">S</span>
+                  <span class="size" data-size="M">M</span>
+                  <span class="size" data-size="L">L</span>
+                  <span class="size" data-size="XL">XL</span>
+                  <span class="size" data-size="XXL">XXL</span>
+              </div>
+              <button id="btn" onclick="addToCart('Pyjama De Bloc Stretch - Femme', '340 Dh', 'path_to_product_image_2', 'product-2')">Ajouter au panier</button>
+          </div>
+      </div>
+  </section>
+</main>
+<footer>
+  <div class="footer-content">
+      <div class="contact">
+          <h3>Contactez Nous</h3> <br>
+        
+          <p>Adresse: Rue Goulmima Res Loubna</p>
+          <p>Téléphone: +212 661 73 84 45</p>
+          <p>Email: contact@beez.ma</p>
+        
+      </div>
+        <div class="social-media">
+          
+              <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+              <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          </div>
+      <div class="links">
+          <h3>Liens utiles</h3>
+          <br>
+          <ul>
+              <li><a href="#">Centre d'aide</a></li>
+              <li><a href="#">Politique de confidentialité</a></li>
+          </ul>
+      </div>
+  </div>
+  <div class="footer-bottom">
+      <p>Copyright © 2024 All Rights Reserved.</p>
+  </div>
+</footer>
+
     </div>
     <script src="script.js"></script>
     <script src="./cart.js"></script>

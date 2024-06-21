@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moon elite</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background-color: #004AAD;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo img {
+  height: 50px;
+}
+
+header nav {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+header nav ul li {
+  display: inline;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+header .cart img {
+  height: 30px;
+}
+
+main {
+  padding: 20px;
+  max-width: 1500px;
+  margin: 0 auto;
+  flex: 1;
+}
+
+.products-section {
+  margin: 40px 0;
+}
+
+.products-section h1 {
+  font-size: 2.5em;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.products {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.product {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  flex: 1 1 calc(50% - 40px);
+  max-width: calc(50% - 40px);
+}
+
+.product img {
+  width: 200px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.product h2 {
+  font-size: 1.6em;
+  margin: 15px 0;
+  color: #555;
+}
+
+.product p {
+  font-size: 1.4em;
+  color: #333;
+}
+
+.product .discount {
+  text-decoration: line-through;
+  color: red;
+  margin-left: 10px;
+}
+
+.colors {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 15px 0;
+}
+
+.color {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+footer {
+  background-color: #004AAD;
+  padding: 20px 50px;
+  margin-top: 20px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1500px;
+  margin: 0 auto;
+  color: #000;
+}
+
+.footer-content .contact {
+  width: 45%;
+}
+
+.footer-content .links {
+  width: 45%;
+  text-align: right;
+}
+
+.footer-content .links ul {
+  list-style: none;
+}
+
+.footer-content .links ul li {
+  margin-bottom: 10px;
+}
+
+.footer-content .links ul li a {
+  text-decoration: none;
+  color: #fff; /* Links in footer set to white */
+}
+
+.footer-content .links ul li a:hover {
+  color: #ddd; /* Optional: Change link color on hover */
+}
+
+.social-media-center {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.social-media {
+  display: flex;
+  gap: 10px;
+}
+
+.social-media a {
+  text-decoration: none;
+  color: #fff; /* Social media links in footer set to white */
+  font-size: 1.5em;
+}
+
+social-media a:hover {
+  color: #ddd; /* Optional: Change link color on hover */
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: #000;
+}
+
+.cart {
+  padding: 20px;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.cart-item img {
+  width: 100px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 20px;
+}
+
+.cart-summary {
+  text-align: right;
+}
+
+.cart-summary p {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.cart-summary button {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Menu button and dropdown styles */
+.menu-button {
+  position: relative;
+}
+
+#menu-btn {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  border-radius: 4px;
+  z-index: 10;
+  width: 200px; /* adjust width as needed */
+}
+
+.dropdown-menu li {
+  padding: 10px 20px;
+  position: relative;
+}
+
+.dropdown-menu li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+
+.dropdown-menu li:hover {
+  background-color: #f5f5f5;
+}
+
+/* Submenu styles */
+.dropdown-menu .submenu {
+  display: none;
+  position: relative;
+  top: 0;
+  left: 0;
+  margin-left: 20px; /* indent for submenu */
+  box-shadow: none; /* no additional shadow */
+  width: 100%; /* full width of parent menu */
+}
+
+.dropdown-menu li:hover > .submenu {
+  display: block;
+}
+
+/* Remove bullets and styles from submenus */
+.dropdown-menu .submenu li {
+  list-style: none;
+  padding: 5px 0;
+}
+
+.dropdown-menu .submenu li a {
+  text-decoration: none;
+  color: #666;
+}
+
+header h1 {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 2em;
+  color: #000;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  header nav {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .products {
+    flex-direction: column;
+  }
+
+  .product {
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-content .contact, .footer-content .links {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .footer-content .links {
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 10px 20px;
+  }
+
+  header .logo img {
+    height: 40px;
+  }
+
+  header nav ul {
+    gap: 5px;
+  }
+
+  main {
+    padding: 10px;
+  }
+
+  .product {
+    padding: 20px;
+  }
+
+  .product img {
+    width: 150px;
+  }
+
+  footer {
+    padding: 10px 20px;
+  }
+
+  .footer-content .contact, .footer-content .links {
+    text-align: left;
+  }
+
+  .social-media-center {
+    margin-top: 10px;
+  }
+}
+
+/* New styles for info sections */
+.info-section {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.contact-btn {
+  background-color: #004AAD;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.contact-btn:hover {
+  background-color: #003580;
+}
+
+  </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="menu-button">
+                <button id="menu-btn">☰</button>
+                <ul id="menu-dropdown" class="dropdown-menu">
+                    <li>
+                        <a href="#">Femme</a>
+                        <ul class="submenu">
+                            <li><a href="#">Pyjama de bloc</a></li>
+                            <li><a href="#">Stretch - Col Mao</a></li>
+                            <li><a href="#">Stretch - Col V</a></li>
+                            <li><a href="#">Stretch - Col Polo</a></li>
+                            <li><a href="#">Collection hijab</a></li>
+                            <li>
+                                <a href="#">Blouses anti-tâches</a>
+                                <ul class="submenu">
+                                    <li><a href="#">Col chemisier - demi-manches</a></li>
+                                    <li><a href="#">Col officier - demi-manches</a></li>
+                                    <li><a href="#">Col chemisier - manches Longues</a></li>
+                                    <li><a href="#">Col officier - manches Longues</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Homme</a>
+                        <ul class="submenu">
+                            <li><a href="#">Pyjama de bloc</a></li>
+                            <li><a href="#">Stretch - Col Mao</a></li>
+                            <li><a href="#">Stretch - Col V</a></li>
+                            <li><a href="#">Stretch - Col Polo</a></li>
+                            <li>
+                                <a href="#">Blouses anti-tâches</a>
+                                <ul class="submenu">
+                                    <li><a href="#">Col chemisier - demi-manches</a></li>
+                                    <li><a href="#">Col officier - demi-manches</a></li>
+                                    <li><a href="#">Col chemisier - manches Longues</a></li>
+                                    <li><a href="#">Col officier - manches Longues</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Calots</a></li>
+                    <li><a href="#">Polaire</a></li>
+                    <li><a href="#">Rédaction</a></li>
+                </ul>
+            </div>
+            <div class="logo">
+                <img src="./logo.jpg" alt="Beez Uniforms">
+            </div>
+            <h1 style="color: white;">Moon Elite
+</h1>
+            
+            <div class="cart">
+                <a href="./commander.html"><i style="font-size:24px" class="fa">&#xf07a;</i></a>
+            </div>
+        </header>
+        <main>
+          <section class="info-section">
+            <p><h1>ÉTUDIANTES, ÉTUDIANTS !</h1>
+              PROFITEZ DE 5% DE RÉDUCTION !
+              Profiter de 5% de remise étudiante sur tous nos uniformes médicaux.
+              
+              Profiter de 5% de remise étudiante sur tous nos uniformes médicaux. Pour profiter de cette réduction, il suffit de renseigner le code promo « ETUDIANT » lors de la prise de commande.
+              Pour confirmer la réduction, le service client vous demandera d’envoyer une image de votre carte d’étudiant* par Whatsapp, Facebook Messenger ou Instagram Direct lors de la confirmation de la commande pour vérifier le nom et prénom.</p>
+              <button class="contact-btn" onclick="sendWhatsAppMessage()">Contactez Nous</button>
+          </section>
+          <section class="info-section">
+              <p><h1>ÉTUDIANTES, ÉTUDIANTS !</h1>
+                PROFITEZ DE 5% DE RÉDUCTION !
+                Profiter de 5% de remise étudiante sur tous nos uniformes médicaux.
+                
+                Profiter de 5% de remise étudiante sur tous nos uniformes médicaux. Pour profiter de cette réduction, il suffit de renseigner le code promo « ETUDIANT » lors de la prise de commande.
+                Pour confirmer la réduction, le service client vous demandera d’envoyer une image de votre carte d’étudiant* par Whatsapp, Facebook Messenger ou Instagram Direct lors de la confirmation de la commande pour vérifier le nom et prénom.</p>
+              <button class="contact-btn" onclick="sendWhatsAppMessage()">Contactez Nous</button>
+          </section>
+      </main>
+
+<footer>
+  <div class="footer-content">
+      <div class="contact">
+          <h3>Contactez Nous</h3> <br>
+        
+          <p>Adresse: Rue Goulmima Res Loubna</p>
+          <p>Téléphone: +212 661 73 84 45</p>
+          <p>Email: contact@beez.ma</p>
+        
+      </div>
+        <div class="social-media">
+          
+              <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+              <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          </div>
+      <div class="links">
+          <h3>Liens utiles</h3>
+          <br>
+          <ul>
+              <li><a href="#">Centre d'aide</a></li>
+              <li><a href="#">Politique de confidentialité</a></li>
+          </ul>
+      </div>
+  </div>
+  <div class="footer-bottom">
+      <p>Copyright © 2024 All Rights Reserved.</p>
+  </div>
+</footer>
+
+    </div>
+    <script src="script.js"></script>
+    <script src="./cart.js"></script>
+    <script>
+      function sendWhatsAppMessage() {
+          const phoneNumber = '0642293138';
+          const message = 'Bonjour, je voudrais avoir plus d\'informations.';
+          const url = `https://api.whatsapp.com/send?phone=212${phoneNumber.substring(1)}&text=${encodeURIComponent(message)}`;
+          window.open(url, '_blank');
+      }
+  </script>
+</body>
+</html>

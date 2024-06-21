@@ -24,7 +24,7 @@ body {
 }
 
 header {
-  background-color: #A1B5A0;
+  background-color: #004AAD;
   padding: 20px 50px;
   display: flex;
   justify-content: space-between;
@@ -134,7 +134,7 @@ main {
 }
 
 footer {
-  background-color: #A1B5A0;
+  background-color: #004AAD;
   padding: 20px 50px;
   margin-top: 20px;
 }
@@ -144,10 +144,16 @@ footer {
   justify-content: space-between;
   max-width: 1500px;
   margin: 0 auto;
+  color: #000;
 }
 
-.footer-content .contact, .footer-content .links {
+.footer-content .contact {
   width: 45%;
+}
+
+.footer-content .links {
+  width: 45%;
+  text-align: right;
 }
 
 .footer-content .links ul {
@@ -158,11 +164,41 @@ footer {
   margin-bottom: 10px;
 }
 
+.footer-content .links ul li a {
+  text-decoration: none;
+  color: #fff; /* Links in footer set to white */
+}
+
+.footer-content .links ul li a:hover {
+  color: #ddd; /* Optional: Change link color on hover */
+}
+
+.social-media-center {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.social-media {
+  display: flex;
+  gap: 10px;
+}
+
+.social-media a {
+  text-decoration: none;
+  color: #fff; /* Social media links in footer set to white */
+  font-size: 1.5em;
+}
+
+.social-media a:hover {
+  color: #ddd; /* Optional: Change link color on hover */
+}
+
 .footer-bottom {
   text-align: center;
   margin-top: 10px;
   font-size: 0.9em;
-  color: #333;
+  color: #000;
 }
 
 .cart {
@@ -315,6 +351,10 @@ header h1 {
     width: 100%;
     margin-bottom: 20px;
   }
+
+  .footer-content .links {
+    text-align: left;
+  }
 }
 
 @media (max-width: 480px) {
@@ -345,4 +385,50 @@ header h1 {
   footer {
     padding: 10px 20px;
   }
+
+  .footer-content .contact, .footer-content .links {
+    text-align: left;
+  }
+
+  .social-media-center {
+    margin-top: 10px;
+  }
+}
+.size-dropdown {
+  display: block;
+  margin: 10px 0;
+  padding: 5px;
+  font-size: 1em;
+}
+.sizes {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.size {
+  padding: 10px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.size.selected {
+  background-color: #333;
+  color: #fff;
+  border-color: #333;
+}
+
+#btn {
+  background-color: #004AAD; /* Primary color */
+  color: white; /* Text color */
+  padding: 10px 20px; /* Padding for the button */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 16px; /* Font size */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+#btn:hover {
+  background-color: #003080; /* Darker shade for hover effect */
 }
