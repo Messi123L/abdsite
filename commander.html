@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Commande</title>
     <link rel="stylesheet" href="styles.css">
-
 </head>
 <body>
     <div class="container">
+      
         <form id="orderForm">
             <h2>Contact</h2>
             <input type="email" id="email" name="email" placeholder="Adresse e-mail" required>
@@ -49,7 +49,7 @@
                     <h1>Votre Panier</h1>
                     <div id="cart-items"></div>
                     <div class="cart-summary">
-                        <p id="total-price">Total: 0 Dh</p>
+                        <p id="total-price">Total: 0 MAD</p>
                     </div>
                 </section>
             </main>
@@ -58,73 +58,6 @@
         </form>
     </div>
     <script src="cart.js"></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-  // Function to add products to the cart
-  window.addToCart = function(name, price, image) {
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-    const productIndex = cart.findIndex(item => item.name === name);
-    if (productIndex !== -1) {
-        // If product already exists in cart, increase its quantity
-        cart[productIndex].quantity++;
-    } else {
-        // If product doesn't exist in cart, add it
-        cart.push({
-            name: name,
-            price: price,
-            image: image,
-            quantity: 1
-        });
-    }
-
-    // Save the updated cart to localStorage
-    localStorage.setItem('cart', JSON.stringify(cart));
-    alert(`${name} a été ajouté au panier`);
-  }
-
-  // Function to send order details via WhatsApp
-  window.sendWhatsApp = function(event) {
-    event.preventDefault(); // Prevent the form from submitting the default way
-    
-    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-    let cartDetails = '';
-
-    cartItems.forEach(item => {
-        cartDetails += `\n- ${item.name} (${item.price} MAD) x ${item.quantity}`;
-    });
-
-    const email = document.getElementById('email').value;
-    const firstName = document.getElementById('firstName').value;
-    const lastName = document.getElementById('lastName').value;
-    const address = document.getElementById('address').value;
-    const postalCode = document.getElementById('postalCode').value;
-    const city = document.getElementById('city').value;
-    const phone = document.getElementById('phone').value;
-    const shipping = document.getElementById('shipping').value;
-
-    const message = `Nouvelle commande:
-Adresse e-mail: ${email}
-Prénom: ${firstName}
-Nom: ${lastName}
-Adresse: ${address}
-Code postal: ${postalCode}
-Ville: ${city}
-Téléphone: ${phone}
-Mode d'expédition: ${shipping}
-Articles dans le panier:${cartDetails}`;
-
-    const whatsappURL = `https://wa.me/212642293138?text=${encodeURIComponent(message)}`;
-    window.open(whatsappURL, '_blank');
-  }
-
-  // Submit form and call sendWhatsApp function
-  const form = document.getElementById('orderForm');
-  if (form) {
-    form.addEventListener('submit', sendWhatsApp);
-  }
-});
-
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -15,6 +15,7 @@ function updateQuantity(name, color, size, change) {
 
   localStorage.setItem('cart', JSON.stringify(cart));
   renderCart();
+  updateCartCount();
 }
 
 function removeFromCart(name, color, size) {
@@ -27,6 +28,7 @@ function removeFromCart(name, color, size) {
 
   localStorage.setItem('cart', JSON.stringify(cart));
   renderCart();
+  updateCartCount();
 }
 
 function renderCart() {
@@ -42,7 +44,7 @@ function renderCart() {
           <img src="${item.image}" alt="${item.name}">
           <div>
               <h2>${item.name}</h2>
-              <p>${item.price}</p>
+              <p>${item.price} MAD</p>
               <p>Couleur: ${item.color}</p>
               <p>Taille: ${item.size}</p>
               <div class="quantity-controls">
@@ -63,41 +65,8 @@ function renderCart() {
   }
 }
 
-function sendWhatsApp(event) {
-  event.preventDefault();
-
-  const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-  let cartDetails = '';
-
-  cartItems.forEach(item => {
-      cartDetails += `\n- ${item.name} (${item.price} MAD) x ${item.quantity} (Couleur: ${item.color}, Taille: ${item.size})`;
-  });
-
-  const email = document.getElementById('email').value;
-  const firstName = document.getElementById('firstName').value;
-  const lastName = document.getElementById('lastName').value;
-  const address = document.getElementById('address').value;
-  const postalCode = document.getElementById('postalCode').value;
-  const city = document.getElementById('city').value;
-  const phone = document.getElementById('phone').value;
-  const shipping = document.getElementById('shipping').value;
-
-  const message = `Nouvelle commande:
-Adresse e-mail: ${email}
-Prénom: ${firstName}
-Nom: ${lastName}
-Adresse: ${address}
-Code postal: ${postalCode}
-Ville: ${city}
-Téléphone: ${phone}
-Mode d'expédition: ${shipping}
-Articles dans le panier:${cartDetails}`;
-
-  const whatsappURL = `https://wa.me/212642293138?text=${encodeURIComponent(message)}`;
-  window.open(whatsappURL, '_blank');
-}
-
-const form = document.getElementById('orderForm');
-if (form) {
-  form.addEventListener('submit', sendWhatsApp);
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const cartCount = cart.reduce((count, item) => count + item.quantity, 0);
+  document.getElementById('cart-count').innerText = cartCount;
 }

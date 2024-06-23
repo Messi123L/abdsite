@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Gestion du menu déroulant
   const menuBtn = document.getElementById('menu-btn');
   const dropdownMenu = document.getElementById('menu-dropdown');
 
@@ -22,21 +23,33 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   });
 
+  // Sélection de la couleur
   document.querySelectorAll('.color').forEach(color => {
       color.addEventListener('click', function () {
           const product = this.closest('.product');
           const imageElement = product.querySelector('img');
           const newImage = this.getAttribute('data-image');
           imageElement.src = newImage;
-          product.querySelector('.color.selected')?.classList.remove('selected');
+
+          // Supprimer la sélection précédente
+          const previouslySelected = product.querySelector('.color.selected');
+          if (previouslySelected) {
+              previouslySelected.classList.remove('selected');
+          }
+
+          // Ajouter la sélection actuelle
           this.classList.add('selected');
       });
   });
 
+  // Sélection de la taille
   document.querySelectorAll('.size').forEach(size => {
       size.addEventListener('click', function () {
           const product = this.closest('.product');
-          product.querySelector('.size.selected')?.classList.remove('selected');
+          const previouslySelected = product.querySelector('.size.selected');
+          if (previouslySelected) {
+              previouslySelected.classList.remove('selected');
+          }
           this.classList.add('selected');
       });
   });
@@ -56,8 +69,8 @@ function addToCart(name, price, image, productId) {
   const selectedSize = selectedSizeElement.dataset.size;
 
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
   const productIndex = cart.findIndex(item => item.name === name && item.color === selectedColor && item.size === selectedSize);
+
   if (productIndex !== -1) {
       cart[productIndex].quantity++;
   } else {
@@ -72,7 +85,14 @@ function addToCart(name, price, image, productId) {
   }
 
   localStorage.setItem('cart', JSON.stringify(cart));
+  updateCartCount();
   alert(`${name} a été ajouté au panier`);
+}
+
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const cartCount = cart.reduce((count, item) => count + item.quantity, 0);
+  document.getElementById('cart-count').innerText = cartCount;
 }
 
 function sendWhatsApp(event) {
