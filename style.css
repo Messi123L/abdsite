@@ -11,7 +11,7 @@ html, body {
 
 body {
   font-family: Arial, sans-serif;
-  background-color:white;
+  background-color: white;
   color: #333;
   display: flex;
   flex-direction: column;
@@ -29,6 +29,10 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+header .logo {
+  margin-right: 20px; /* Add margin to create distance between the logo and submenu */
 }
 
 header .logo img {
@@ -57,8 +61,26 @@ header nav ul li a {
   font-weight: bold;
 }
 
+header .cart {
+  position: relative;
+}
+
 header .cart img {
   height: 30px;
+}
+
+#cart-count {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 5px 10px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 main {
@@ -355,6 +377,11 @@ header h1 {
   .footer-content .links {
     text-align: left;
   }
+
+  .dropdown-menu {
+    position: static; /* Ensure submenu is displayed properly on small screens */
+    width: 100%;
+  }
 }
 
 @media (max-width: 480px) {
@@ -394,12 +421,14 @@ header h1 {
     margin-top: 10px;
   }
 }
+
 .size-dropdown {
   display: block;
   margin: 10px 0;
   padding: 5px;
   font-size: 1em;
 }
+
 .sizes {
   display: flex;
   gap: 10px;
@@ -431,22 +460,4 @@ header h1 {
 
 #btn:hover {
   background-color: #003080; /* Darker shade for hover effect */
-}
-.cart {
-  position: relative;
-  display: inline-block;
-}
-
-#cart-count {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  background-color: red;
-  color: white;
-  border-radius: 50%;
-  padding: 5px 10px;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
