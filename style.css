@@ -465,3 +465,29 @@ header h1 {
 #btn:hover {
   background-color: #003080; /* Darker shade for hover effect */
 }
+
+/* Styles for mobile submenu */
+@media (max-width: 767px) {
+  .dropdown-menu {
+    display: block; /* Ensure dropdown menu is displayed */
+    position: relative;
+    width: 100%;
+    box-shadow: none;
+  }
+
+  .dropdown-menu .submenu {
+    margin-left: 0;
+  }
+
+  .dropdown-menu li:hover > .submenu {
+    display: none; /* Prevent hover on mobile */
+  }
+
+  .dropdown-menu .submenu li a {
+    padding-left: 20px; /* Add padding to submenu items */
+  }
+
+  .menu-button.active .dropdown-menu {
+    display: block;
+  }
+}
