@@ -29,15 +29,35 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
   flex-wrap: wrap;
 }
 
 header .logo {
-  margin-right: 20px; /* Add margin to create distance between the logo and submenu */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 header .logo img {
   height: 40px;
+}
+
+header .logo-text {
+  text-align: center;
+  color: white;
+}
+
+header .logo-text .moon-elite {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.5em;
+  display: block;
+}
+
+header .logo-text .uniforms {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5em;
+  display: block;
 }
 
 header nav {
@@ -59,10 +79,14 @@ header nav ul li a {
   text-decoration: none;
   color: #000;
   font-weight: bold;
+  background-color: #666;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 header .cart {
   position: relative;
+  margin-left: auto;
 }
 
 header .cart img {
@@ -185,11 +209,11 @@ footer {
 
 .footer-content .links ul li a {
   text-decoration: none;
-  color: #fff; /* Links in footer set to white */
+  color: #fff;
 }
 
 .footer-content .links ul li a:hover {
-  color: #ddd; /* Optional: Change link color on hover */
+  color: #ddd;
 }
 
 .social-media-center {
@@ -205,12 +229,12 @@ footer {
 
 .social-media a {
   text-decoration: none;
-  color: #fff; /* Social media links in footer set to white */
+  color: #fff;
   font-size: 1.5em;
 }
 
 .social-media a:hover {
-  color: #ddd; /* Optional: Change link color on hover */
+  color: #ddd;
 }
 
 .footer-bottom {
@@ -258,7 +282,6 @@ footer {
   cursor: pointer;
 }
 
-/* Menu button and dropdown styles */
 .menu-button {
   position: relative;
 }
@@ -300,22 +323,20 @@ footer {
   background-color: #f5f5f5;
 }
 
-/* Submenu styles */
 .dropdown-menu .submenu {
   display: none;
   position: relative;
   top: 0;
   left: 0;
-  margin-left: 20px; /* indent for submenu */
-  box-shadow: none; /* no additional shadow */
-  width: 100%; /* full width of parent menu */
+  margin-left: 20px;
+  box-shadow: none;
+  width: 100%;
 }
 
 .dropdown-menu li:hover > .submenu {
   display: block;
 }
 
-/* Remove bullets and styles from submenus */
 .dropdown-menu .submenu li {
   list-style: none;
   padding: 5px 0;
@@ -326,21 +347,9 @@ footer {
   color: #666;
 }
 
-header h1 {
-  flex-grow: 1;
-  text-align: center;
-  font-size: 2em;
-  color: #000;
-  font-weight: bold;
-  margin: 0;
-}
-
-/* Responsive styles */
 @media (min-width: 768px) {
   header {
     padding: 20px 50px;
-    flex-direction: row;
-    align-items: center;
   }
 
   header nav {
@@ -403,7 +412,7 @@ header h1 {
   }
 
   .dropdown-menu {
-    width: 200px; /* adjust width as needed */
+    width: 200px;
   }
 }
 
@@ -423,6 +432,52 @@ header h1 {
 
   .cart {
     padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header .logo {
+    position: static;
+    transform: none;
+    margin-bottom: 10px;
+  }
+
+  header .cart {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  header nav ul {
+    flex-direction: column;
+  }
+
+  header nav ul li a {
+    padding: 10px 20px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .products {
+    flex-direction: column;
+  }
+
+  .product {
+    max-width: 100%;
+  }
+
+  footer .footer-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  footer .footer-content .contact, footer .footer-content .links {
+    width: 100%;
+    text-align: center;
   }
 }
 
@@ -452,42 +507,16 @@ header h1 {
 }
 
 #btn {
-  background-color: #004AAD; /* Primary color */
-  color: white; /* Text color */
-  padding: 10px 20px; /* Padding for the button */
-  border: none; /* Remove default border */
-  border-radius: 5px; /* Rounded corners */
-  cursor: pointer; /* Pointer cursor on hover */
-  font-size: 16px; /* Font size */
-  transition: background-color 0.3s; /* Smooth transition for hover effect */
+  background-color: #004AAD;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
 }
 
 #btn:hover {
-  background-color: #003080; /* Darker shade for hover effect */
-}
-
-/* Styles for mobile submenu */
-@media (max-width: 767px) {
-  .dropdown-menu {
-    display: block; /* Ensure dropdown menu is displayed */
-    position: relative;
-    width: 100%;
-    box-shadow: none;
-  }
-
-  .dropdown-menu .submenu {
-    margin-left: 0;
-  }
-
-  .dropdown-menu li:hover > .submenu {
-    display: none; /* Prevent hover on mobile */
-  }
-
-  .dropdown-menu .submenu li a {
-    padding-left: 20px; /* Add padding to submenu items */
-  }
-
-  .menu-button.active .dropdown-menu {
-    display: block;
-  }
+  background-color: #003080;
 }
