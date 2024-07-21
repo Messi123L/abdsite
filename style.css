@@ -25,27 +25,22 @@ body {
 
 header {
   background-color: #004AAD;
-  padding: 20px 20px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 header .logo {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-header .logo img {
-  height: 40px;
+  display: flex;
+  align-items: center;
 }
 
 header .logo-text {
   text-align: center;
   color: white;
+  flex-grow: 1;
 }
 
 header .logo-text .moon-elite {
@@ -61,18 +56,14 @@ header .logo-text .uniforms {
 }
 
 header nav {
-  width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 10px;
 }
 
 header nav ul {
   list-style: none;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: center;
+  gap: 20px;
 }
 
 header nav ul li a {
@@ -86,6 +77,8 @@ header nav ul li a {
 
 header .cart {
   position: relative;
+  display: flex;
+  align-items: center;
   margin-left: auto;
 }
 
@@ -355,7 +348,6 @@ footer {
   header nav {
     width: auto;
     justify-content: center;
-    margin-top: 0;
   }
 
   header nav ul {
@@ -437,19 +429,21 @@ footer {
 
 @media (max-width: 768px) {
   header {
-    flex-direction: column;
-    align-items: center;
+    padding: 20px;
+    justify-content: space-between;
   }
 
   header .logo {
-    position: static;
-    transform: none;
-    margin-bottom: 10px;
+    justify-content: center;
+  }
+
+  header .logo-text {
+    text-align: center;
+    flex-grow: 1;
   }
 
   header .cart {
-    margin-left: 0;
-    margin-top: 10px;
+    margin-left: auto;
   }
 
   header nav ul {
