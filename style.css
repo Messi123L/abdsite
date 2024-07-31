@@ -122,19 +122,21 @@ main {
 
 .products {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  overflow-x: auto;
 }
 
 .product {
+  flex: 0 0 calc(50% - 10px); /* Ajuster pour deux produits par ligne */
+  margin: 5px;
+  box-sizing: border-box;
   background-color: #fff;
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
-  width: 100%;
-  max-width: 300px;
 }
 
 .product img {
@@ -534,6 +536,11 @@ footer {
   .dropdown-menu .submenu.horizontal li a {
     text-align: center;
   }
+
+  .product {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .size-dropdown {
@@ -576,7 +583,7 @@ footer {
   background-color: #003080;
 }
 
-/* Spécifique à l'élément Calots */
+/* Specific adjustment for the 'Calots' element */
 @media (max-width: 768px) {
   .dropdown-menu li a[href="./calots.html"] {
     padding-left: 20px;
