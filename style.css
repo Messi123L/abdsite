@@ -582,7 +582,12 @@ footer {
 #btn:hover {
   background-color: #003080;
 }
-
+.product {
+  flex: 0 0 calc(100% - 20px); /* Un produit par ligne */
+  margin: 5px; /* Réduire la marge pour plus de compacité */
+  padding: 10px; /* Réduire le padding pour plus de compacité */
+  max-width: 280px; /* Définir une largeur maximale pour plus de contrôle */
+}
 /* Specific adjustment for the 'Calots' element */
 @media (max-width: 768px) {
   .dropdown-menu li a[href="./calots.html"] {
